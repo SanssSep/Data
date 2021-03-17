@@ -10,14 +10,16 @@ class Vector{
 
 private:
 
-	unsigned int sz;
-	unsigned int capacity;
+	unsigned int sz; // Tamaño ocupado del vector.
+	unsigned int capacity; // Capacidad total del vector
 	double policy; //Politica de crecimiento.
 	T* storage;
 
 public:
 
-	Vector() {
+// Funciones Constructoras del vector.
+
+	Vector() { 
 
 		sz = 0;
 		capacity = 8;
@@ -25,17 +27,17 @@ public:
 		storage = new T[capacity];
 	}
 
-	Vector(unsigned int c, double p = 1.5){ // Permite agregar el argumento c de tamaño
+	Vector(unsigned int c, double p = 1.5){ // Permite agregar el argumento "c" de tamaño
+// Si la politica de crecimiento es menor que cero, el resize disminuiria el tamaño del vector.
 
-		assert(p > 1.0);
+		assert(p > 1.0); 
 		sz = 0;
 		capacity = c;
 		policy = p;
 		storage = new T[capacity];
 	}
 
-	Vector(const Vector<T>& other) { // copio un vector en otro 
-
+	Vector(const Vector<T>& other) { // Funcion para copiar un vector.
 		sz = other.sz;
 		capacity = other.capacity;
 		policy = other.policy;
@@ -58,9 +60,11 @@ public:
 		return *this;
 	}
 
-	~Vector(){ delete[] storage; }
+// Deconstrulle el vector automaticamente despues de su uso
+	~Vector(){ delete[] storage; } 
 
-	unsigned int size() {return sz;}
+// retorna el tamaño ocupado del vector 
+	unsigned int size() {return sz;} 
 	
 	void push_back(const Vector<T>& other){
 
@@ -68,7 +72,8 @@ public:
 	// Solo debe hacer un resize!
 	}
 
-	void push_back(const T& e){
+	// Agrega un elemento al final del vector.
+	void push_back(const T& e){ 
 
 		if (sz == capacity){
 			resize();
@@ -83,6 +88,7 @@ public:
 		// Solo debe hacer un resize!
 	}		
 
+	// Agrega un elemento al inicio del vector.
 	void push_front(const T& e){
 
 		if (sz == capacity){
@@ -103,8 +109,10 @@ public:
 		//inserta los elementos de other a partir de la posicion p.
 		}
 
+	// Verifica que la posicion "pos" se encuentre dentro del vector.
 	bool isValid(unsigned pos) {return pos >= 0 && pos < sz;}
 
+	// intercambia los elementos de un vector
 	void swap(unsigned int i, unsigned int j){
 
 		if (!isValid(i)){
@@ -135,6 +143,7 @@ public:
 
 private:
 
+	// Reconstruye el vector con capacidad aumentada (capacity * policy)
 	void resize() {
 
 		unsigned int newCapacity = capacity * policy;
@@ -149,25 +158,31 @@ private:
 
 public:
 
+	// Retorna el elemento que se encuentre en la posicion "p"
 	T& at(unsigned int p) {
+
 		assert(p >= 0 && p < sz && "Posicion no valida dentro del vector");
 		return storage[p];
 	}
 
+	// retorna un valor booleano True si el vector esta vacio.
 	bool empty() {return sz == 0;}
 
+	// Retorna el primer elemento del vector.
 	T& front (){
 
 		assert(!empty() && "El vector no puede estar vacio");
 		return storage[0];
 	}
 
+	// Retorna el ultimo elemento
 	T& back(){
 
 		assert(!empty() && "El vector no puede estar vacio");
 		return storage[sz - 1];
 	}
 	
+	// Imprime todos los elementos
 	void print(){
 
 		for(unsigned int i = 0; i < sz; i++){cout << " ," << at(i);
@@ -175,6 +190,7 @@ public:
 	cout << endl;	
 	}
 
+	// Organiza los elementos por el metodo burbuja
 	void bsort() {
 
 		for (unsigned int i = 0; i < sz; i++) {
@@ -186,10 +202,8 @@ public:
 		}
 	}
 
-	void reverse() {
-		for (unsigned int = 0; i < sz ; i++){
-		}
-/* Operaciones pedagogicas */
+
+	/* Operaciones pedagogicas */
 
 	size_t usedMem() {
 		return sizeof(T*) + 2 * sizeof(unsigned int) + sizeof(double) + capacity * sizeof(T);

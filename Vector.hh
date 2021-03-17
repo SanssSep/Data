@@ -1,4 +1,4 @@
-# ifndef __VECTOR_HH__
+#ifndef __VECTOR_HH__
 # define __VECTOR_HH__
 
 #include<cassert>
@@ -12,7 +12,7 @@ private:
 
 	unsigned int sz; // Tamaño ocupado del vector.
 	unsigned int capacity; // Capacidad total del vector
-	double policy; //Politica de crecimiento.
+	double policy; //Politica de crecimiento. Cambio 2
 	T* storage;
 
 public:

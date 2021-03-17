@@ -11,7 +11,7 @@ class Vector{
 private:
 
 	unsigned int sz; // Tamaño ocupado del vector. Cambio Numero 1 
-	unsigned int capacity; // Capacidad total del vector
+	unsigned int capacity; // Capacidad total del vector Cambio Numero 3
 	double policy; //Politica de crecimiento.
 	T* storage;
 

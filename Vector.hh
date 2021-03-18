@@ -10,7 +10,7 @@ class Vector{
 
 private:
 
-	unsigned int sz; // Tamaño ocupado del vector.
+	unsigned int sz; // Tamaño ocupado del vector. 
 	unsigned int capacity; // Capacidad total del vector
 	double policy; //Politica de crecimiento. 
 	T* storage;
@@ -60,7 +60,7 @@ public:
 		return *this;
 	}
 
-// Deconstrulle el vector automaticamente despues de su uso
+// Desconstruye el vector automaticamente despues de su uso
 	~Vector(){ delete[] storage; } 
 
 // retorna el tamaño ocupado del vector 

@@ -2,7 +2,7 @@
 #define __LIST_HH___
 
 #include<cassert>
-#include <iostream>
+#include<iostream>
 
 using namespace std;
 
@@ -18,19 +18,43 @@ private:
 			Node* next;
 
 		public:
+			// Construlle un nodo
 			Node(const T& d) 
 				: data(d)
 				, next(nullptr){}
+			//Retorna el dato que contiene el nodo 
 			const T& getData() { return data; }
+			
+			// Retorna un apuntador al nodo siguiente.
 			Node* getNext() { return next; }
+
+			// Define el siguiente Nodo
 			void setNext(Node* n) { next = n; }
 	};
 	// Atributos de una lista
+ 
   Node* first; // Almacena la direccion del primer elemento en la lista 
 
 public:
 	List()
 		: first(nullptr) {}
-};
+
+	void push_back(const T& d){
+		Node* n = new Node(d);
+		if (empty()){
+			first = n;
+		}
+		else{
+			Node* p = first;
+			while (p -> getNext() != nullptr){
+				p = p->getNext();
+			}
+			p -> setNext(n);
+		}
+	}
+
+	bool empty(){first == nullptr}
+	
+	};
 
 #endif

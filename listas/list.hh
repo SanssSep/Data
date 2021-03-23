@@ -39,21 +39,38 @@ public:
 	List()
 		: first(nullptr) {}
 
+	
+	// ----------------------------------------- Funcion Propia
+	void print(){
+		Node* p = first ;
+		cout << endl;
+		while (p -> getNext() != nullptr){
+			cout << p -> getData() << ",";
+			p = p -> getNext();
+		}
+		cout << p -> getData() << ". ";
+	}
+	// ----------------------------------------- Funcion Propia
+	
 	void push_back(const T& d){
+
 		Node* n = new Node(d);
+
 		if (empty()){
 			first = n;
 		}
 		else{
 			Node* p = first;
 			while (p -> getNext() != nullptr){
-				p = p->getNext();
+				p = p -> getNext();
 			}
 			p -> setNext(n);
 		}
 	}
 
-	bool empty(){first == nullptr}
+	// ----------------------------------------- Funcion Propia
+		bool empty(){ return (first == nullptr);}
+	// ----------------------------------------- Funcion propia.
 	
 	};
 

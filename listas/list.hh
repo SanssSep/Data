@@ -37,12 +37,15 @@ private:
   Node* last; // Almacena la direccion del ultimo elemento en la lista 
 
 public:
+	// Construye un lista
 	List()
 		: first(nullptr)
  		, last(nullptr)	{}
 
+	//Verifica si la lista esta vacia
 	bool empty(){ return (first == nullptr);}
 	
+	// Imprime la lista  
 	void print(){
 		
 		if(empty()){
@@ -58,6 +61,8 @@ public:
 			cout << p -> getData() << "." << ">" << endl;
 		}
 	}	
+
+	//Agrega un elemento al final de la lista
 	void push_back(const T& d){
 
 		Node* n = new Node(d);
@@ -71,6 +76,7 @@ public:
 		last = n;
 		}
 
+	//Agrega un elemento al inicio de la lista
 	void push_front(const T& d){
 
 		Node* n = new Node(d);

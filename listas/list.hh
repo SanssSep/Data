@@ -87,6 +87,38 @@ public:
 		first = n;
 	}
 
+	//Elimina el primer nodo.
+		void pop_front(){
+
+		assert(!empty() && "lista vacia");
+		Node *n = first;
+		first = first->getNext();
+		if(first == nullptr){
+			last = nullptr;
+		}
+		delete n;
+	}
+
+	//Elimina el ultimo nodo.	
+	void pop_back(){
+
+		assert(!empty() && "lista vacia");
+		if (first == last){
+			delete last;
+			first = nullptr;
+			last = nullptr; 
+		}
+			else{
+				Node *n = first;
+				while(n->getNext() != last){
+					n = n->getNext();
+				}
+				n->setNext(nullptr);
+				delete last;
+				last = n;
+			}
+	}
+
 };
 
 #endif

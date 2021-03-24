@@ -34,24 +34,30 @@ private:
 	// Atributos de una lista
  
   Node* first; // Almacena la direccion del primer elemento en la lista 
+  Node* last; // Almacena la direccion del ultimo elemento en la lista 
 
 public:
 	List()
-		: first(nullptr) {}
+		: first(nullptr)
+ 		, last(nullptr)	{}
 
+	bool empty(){ return (first == nullptr);}
 	
-	// ----------------------------------------- Inicio de funcion Propia
 	void print(){
-		Node* p = first ;
-		cout << endl << "<";
-		while (p -> getNext() != nullptr){
-			cout << p -> getData() << ",";
-			p = p -> getNext();
+		
+		if(empty()){
+			cout << endl << "<>" << endl;
 		}
-		cout << p -> getData() << "." << ">";
-}
-	// ----------------------------------------- Final de funcion propia.
-	
+		else {
+			Node* p = first ;
+			cout << endl << "<";
+			while (p -> getNext() != nullptr){
+				cout << p -> getData() << ",";
+				p = p -> getNext();
+			}
+			cout << p -> getData() << "." << ">" << endl;
+		}
+	}	
 	void push_back(const T& d){
 
 		Node* n = new Node(d);
@@ -60,27 +66,21 @@ public:
 			first = n;
 		}
 		else{
-			Node* p = first;
-			while (p -> getNext() != nullptr){
-				p = p -> getNext();
-			}
-			p -> setNext(n);
+			last ->setNext(n);
 		}
-	}
-	
+		last = n;
+		}
 
 	void push_front(const T& d){
 
 		Node* n = new Node(d);
 		n -> setNext(first);
+		if (empty()){
+			last = n;
+		}
 		first = n;
 	}
 
-
-	// ----------------------------------------- Inicio de funcion Propia
-		bool empty(){ return (first == nullptr);}
-	// ----------------------------------------- Final de funcion propia.
-	
-	};
+};
 
 #endif

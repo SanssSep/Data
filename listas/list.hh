@@ -67,6 +67,22 @@ public:
 			p -> setNext(n);
 		}
 	}
+	
+
+	// ----------------------------------------- Funcion Propia
+	void push_front(const T& d){
+
+		Node* n = new Node(d);
+		if (empty()){
+			first = n;
+		}
+		else{
+			n -> setNext(first);
+			first = n;
+		}
+	}
+	// ----------------------------------------- Funcion Propia
+
 
 	// ----------------------------------------- Funcion Propia
 		bool empty(){ return (first == nullptr);}

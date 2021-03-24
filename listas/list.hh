@@ -40,17 +40,17 @@ public:
 		: first(nullptr) {}
 
 	
-	// ----------------------------------------- Funcion Propia
+	// ----------------------------------------- Inicio de funcion Propia
 	void print(){
 		Node* p = first ;
-		cout << endl;
+		cout << endl << "<";
 		while (p -> getNext() != nullptr){
 			cout << p -> getData() << ",";
 			p = p -> getNext();
 		}
-		cout << p -> getData() << ". ";
-	}
-	// ----------------------------------------- Funcion Propia
+		cout << p -> getData() << "." << ">";
+}
+	// ----------------------------------------- Final de funcion propia.
 	
 	void push_back(const T& d){
 
@@ -69,24 +69,17 @@ public:
 	}
 	
 
-	// ----------------------------------------- Funcion Propia
 	void push_front(const T& d){
 
 		Node* n = new Node(d);
-		if (empty()){
-			first = n;
-		}
-		else{
-			n -> setNext(first);
-			first = n;
-		}
+		n -> setNext(first);
+		first = n;
 	}
-	// ----------------------------------------- Funcion Propia
 
 
-	// ----------------------------------------- Funcion Propia
+	// ----------------------------------------- Inicio de funcion Propia
 		bool empty(){ return (first == nullptr);}
-	// ----------------------------------------- Funcion propia.
+	// ----------------------------------------- Final de funcion propia.
 	
 	};
 

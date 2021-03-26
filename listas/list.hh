@@ -28,7 +28,7 @@ class List {
 				// Retorna el atributo "next" (un apuntador al nodo siguiente).
 				Node* getNext() { return next; }
 
-				// Define next (apuntador al siguiente Nodo).
+				// Define el atributo "next" (apuntador al siguiente Nodo).
 				void setNext(Node* n) { next = n; }
 		};
 		// Atributos de una lista
@@ -52,7 +52,7 @@ class List {
 				cout << endl << "<>" << endl;
 			}
 			else {
-				Node* p = first ;
+				Node* p = first;
 				cout << endl << "<";
 				while (p -> getNext() != nullptr){
 					cout << p -> getData() << ",";
@@ -71,7 +71,7 @@ class List {
 				first = n;
 			}
 			else{
-				last ->setNext(n);
+				last -> setNext(n);
 			}
 			last = n;
 		}
@@ -92,7 +92,7 @@ class List {
 
 			assert(!empty() && "lista vacia");
 			Node *n = first;
-			first = first->getNext();
+			first = first -> getNext();
 			if(first == nullptr){
 				last = nullptr;
 			}
@@ -110,15 +110,54 @@ class List {
 			}
 			else{
 				Node *n = first;
-				while(n->getNext() != last){
-					n = n->getNext();
+				while(n -> getNext() != last){
+					n = n -> getNext();
 				}
-				n->setNext(nullptr);
+				n -> setNext(nullptr);
 				delete last;
 				last = n;
 			}
 		}
 
+		// ---------------------------------------------Inicio de funcion propia
+
+		// Elimina el primer nodo que contenga el dato "d"
+		void remove(const T& d){
+
+			assert(!empty() && "lista vacia");
+			Node* n = first;
+
+			// Si el dato del primer nodo es igual a el dato que buscamos "d" 
+			// usar la funcion pop_front()
+			if (first -> getData() == d){
+				pop_front();
+			}
+			else {
+				//Mientras que el dato del nodo siguiente a "n" sea diferente del dato que buscamos "d" y
+				//No estemos en el ultimo nodo de la lista.
+				while(n -> getNext() != nullptr && n -> getNext() -> getData() != d) {
+					n = n -> getNext();
+				}
+				// Si estamos en el ultimo nodo y el dato que contiene es igual al dato "d" que buscamos
+				// utilizar la funcion pop_back()
+				if (n == last){
+					if (n -> getData() == d){					
+						pop_back();
+					}
+					else {
+						cout << "No se encontro el dato " << d << " en la lista :C";
+					}
+				}
+				//Si el while paro porque el dato del nodo siguiente a n es igual que el dato "d" que buscamos
+				else {
+					Node* e = n -> getNext();
+					n->setNext(e -> getNext());
+					delete e;
+				}
+			}
+		}
+
+		// ---------------------------------------------Final de funcion propia
 };
 
 #endif

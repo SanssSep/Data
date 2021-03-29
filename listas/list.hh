@@ -33,6 +33,7 @@ class List {
 		};
 		// Atributos de una lista
 
+		unsigned int sz;
 		Node* first; // Almacena la direccion del primer elemento en la lista (apuntador al primer nodo).
 		Node* last; // Almacena la direccion del ultimo elemento en la lista (apuntador al ultimo nodo).
 
@@ -40,10 +41,15 @@ class List {
 		// Construye un lista
 		List()
 			: first(nullptr)
-				, last(nullptr)	{}
+				, last(nullptr)	{
+				sz = 0;
+				}
+		
+
+		unsigned int size(){return sz;}
 
 		//Verifica si la lista esta vacia
-		bool empty(){ return (first == nullptr);}
+		bool empty(){ return (sz == 0);}
 
 		// Imprime la lista (Funcion diferente a la del profesor, podria tener errores) 
 		void print(){
@@ -69,11 +75,14 @@ class List {
 
 			if (empty()){
 				first = n;
+				sz = sz + 1;
 			}
 			else{
 				last -> setNext(n);
+				sz = sz + 1;
 			}
 			last = n;
+			
 		}
 
 		//Agrega un nodo de dato "d" al inicio de la lista
@@ -81,21 +90,26 @@ class List {
 
 			Node* n = new Node(d);
 			n -> setNext(first);
+
 			if (empty()){
 				last = n;
+				sz = sz + 1;
 			}
 			first = n;
+			sz = sz + 1;
 		}
 
 		//Elimina el primer nodo.
 		void pop_front(){
 
 			assert(!empty() && "lista vacia");
-			Node *n = first;
+			Node* n = first;
 			first = first -> getNext();
 			if(first == nullptr){
 				last = nullptr;
+				sz = 0;
 			}
+			sz = sz - 1;
 			delete n;
 		}
 
@@ -107,6 +121,7 @@ class List {
 				delete last;
 				first = nullptr;
 				last = nullptr; 
+				sz = 0;
 			}
 			else{
 				Node *n = first;
@@ -116,6 +131,7 @@ class List {
 				n -> setNext(nullptr);
 				delete last;
 				last = n;
+				sz = sz - 1;
 			}
 		}
 
@@ -153,6 +169,7 @@ class List {
 					Node* e = n -> getNext();
 					n->setNext(e -> getNext());
 					delete e;
+					sz = sz - 1;
 				}
 			}
 		}

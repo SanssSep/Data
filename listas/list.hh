@@ -16,20 +16,28 @@ class List {
 				//Atributos de un nodo
 				T data;
 				Node* next;
+				Node* pre; // Previous
 
 			public:
 				// Construye un nodo
 				Node(const T& d) 
 					: data(d)
-						, next(nullptr){}
+						, next(nullptr)
+						 ,	pre(nullptr){}
 				//Retorna el dato que contiene el nodo.
 				const T& getData() { return data; }
 
 				// Retorna el atributo "next" (un apuntador al nodo siguiente).
 				Node* getNext() { return next; }
 
-				// Define el atributo "next" (apuntador al siguiente Nodo).
+				// Retorna el atributo "pre" (un apuntador al nodo previo).
+				Node* getPre() {return pre;}
+
+				// Define el atributo "next" (apuntador al Nodo siguiente).
 				void setNext(Node* n) { next = n; }
+
+				// Define el atributo "pre" (apuntador al Nodo previo).
+				void setPre(Node * n) { pre = n;}
 		};
 		// Atributos de una lista
 
@@ -68,6 +76,22 @@ class List {
 			}
 		}	
 
+		// Imprime la lista al revez (funcion de prueba)
+		void print_backwards(){
+			if(empty()){
+				cout << endl << "<>" << endl;
+			}
+			else {
+				Node* p = last;
+				cout << endl << "<";
+				while (p -> getPre() != nullptr){
+					cout << p -> getData() << ",";
+					p = p -> getPre();
+				}
+				cout << p -> getData() << "." << ">" << endl;
+			}
+		}	
+
 		//Agrega un nodo de dato "d" al final de la lista
 		void push_back(const T& d){
 
@@ -79,6 +103,7 @@ class List {
 			}
 			else{
 				last -> setNext(n);
+				n -> setPre(last);
 				sz = sz + 1;
 			}
 			last = n;
@@ -89,6 +114,7 @@ class List {
 		void push_front(const T& d){
 
 			Node* n = new Node(d);
+			first -> setPre(n);
 			n -> setNext(first);
 
 			if (empty()){
@@ -109,6 +135,7 @@ class List {
 				last = nullptr;
 				sz = 0;
 			}
+			first -> setPre(nullptr);
 			sz = sz - 1;
 			delete n;
 		}
@@ -167,7 +194,9 @@ class List {
 				//Si el while paro porque el dato del nodo siguiente a n es igual que el dato "d" que buscamos
 				else {
 					Node* e = n -> getNext();
-					n->setNext(e -> getNext());
+					n -> setNext(e -> getNext());
+					n = e -> getNext();
+					n -> setPre(e -> getPre());
 					delete e;
 					sz = sz - 1;
 				}

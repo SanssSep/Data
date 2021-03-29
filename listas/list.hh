@@ -14,9 +14,9 @@ class List {
 
 			private:
 				//Atributos de un nodo
-				T data;
-				Node* next;
-				Node* pre; // Previous
+				T data;      //(Contiene el dato del nodo)
+				Node* next; // (apuntador al nodo siguiente)
+				Node* pre; //  (apuntador al nodo previo)
 
 			public:
 				// Construye un nodo
@@ -24,36 +24,38 @@ class List {
 					: data(d)
 						, next(nullptr)
 						 ,	pre(nullptr){}
+
 				//Retorna el dato que contiene el nodo.
 				const T& getData() { return data; }
 
-				// Retorna el atributo "next" (un apuntador al nodo siguiente).
+				// Retorna el atributo "next".
 				Node* getNext() { return next; }
 
-				// Retorna el atributo "pre" (un apuntador al nodo previo).
+				// Retorna el atributo "pre".
 				Node* getPre() {return pre;}
 
-				// Define el atributo "next" (apuntador al Nodo siguiente).
+				// Define el atributo "next".
 				void setNext(Node* n) { next = n; }
 
-				// Define el atributo "pre" (apuntador al Nodo previo).
+				// Define el atributo "pre".
 				void setPre(Node * n) { pre = n;}
 		};
 		// Atributos de una lista
 
-		unsigned int sz;
-		Node* first; // Almacena la direccion del primer elemento en la lista (apuntador al primer nodo).
-		Node* last; // Almacena la direccion del ultimo elemento en la lista (apuntador al ultimo nodo).
+		unsigned int sz; //(Contiene el tamaño de la lista)
+		Node* first;    // (Apuntador al primer nodo de la lista.)
+		Node* last;    //  (Apuntador al ultimo nodo de la lista.)
 
 	public:
+
 		// Construye un lista
 		List()
 			: first(nullptr)
 				, last(nullptr)	{
 				sz = 0;
 				}
-		
 
+		//Retorna el atributo sz
 		unsigned int size(){return sz;}
 
 		//Verifica si la lista esta vacia
@@ -176,12 +178,12 @@ class List {
 				pop_front();
 			}
 			else {
-				//Mientras que el dato del nodo siguiente a "n" sea diferente del dato que buscamos "d" y
+				 //Mientras que el dato del nodo siguiente a "n" sea diferente del dato que buscamos "d" y
 				//No estemos en el ultimo nodo de la lista.
 				while(n -> getNext() != nullptr && n -> getNext() -> getData() != d) {
 					n = n -> getNext();
 				}
-				// Si estamos en el ultimo nodo y el dato que contiene es igual al dato "d" que buscamos
+				 // Si estamos en el ultimo nodo y el dato que contiene es igual al dato "d" que buscamos
 				// utilizar la funcion pop_back()
 				if (n == last){
 					if (n -> getData() == d){					
@@ -191,13 +193,19 @@ class List {
 						cout << "No se encontro el dato " << d << " en la lista :C";
 					}
 				}
-				//Si el while paro porque el dato del nodo siguiente a n es igual que el dato "d" que buscamos
+				//Si el while para porque el dato del nodo siguiente a n es igual que el dato "d" que buscamos
 				else {
+					//Creamos un apuntador "e" al siguiente nodo de "n"
 					Node* e = n -> getNext();
+					//Definimos el siguiente nodo de "n" como el siguiente nodo de "e"
 					n -> setNext(e -> getNext());
+					//Apuntamos con "n" al siguiente nodo de "e"
 					n = e -> getNext();
+					//Definimos el nodo previo a "n" como el nodo previo a "e"
 					n -> setPre(e -> getPre());
+					//Eliminamos e
 					delete e;
+					//Disminuimos el tamaño de sz.
 					sz = sz - 1;
 				}
 			}

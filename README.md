@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="css/retro.css">
+
+
 # Estructura de datos
 
 <img src="img/utp.png" alt="Logo UTP" width="150" height="150"> 

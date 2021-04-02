@@ -1,6 +1,7 @@
+<title>Estructura de datos</title>
 <center>
-<link rel="stylesheet" href="css/retro.css">
 
+<link rel="stylesheet" href="css/retro.css">
 
 # Estructura de datos
 
@@ -35,6 +36,7 @@ class Node {
 
 
 ```
+
 - ### [Funcion remove()](https://github.com/SanssSep/Data/commit/fce6b16f298c671df82267dfd4cb08bd2a39bcff)
 	- Elimina el primer nodo que contenga el dato "d"
 

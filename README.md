@@ -1,6 +1,6 @@
 # Estructura de datos
 
-<img src="img/utp.png" alt="Logo UTP" width="500" height="600"> 
+<img src="img/utp.png" alt="Logo UTP" width="100" height="200"> 
 
 Repositorio creado para hostear el codigo desarrollado en Estructura de
 datos 

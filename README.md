@@ -1,4 +1,6 @@
+<center>
 <link rel="stylesheet" href="css/retro.css">
+</center>
 
 
 # Estructura de datos

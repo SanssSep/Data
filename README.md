@@ -6,7 +6,7 @@ datos
 ## *FAQ*
 
 ### **¿Puedo ver un historial de cada cambio al codigo?**
-	- Si, para esto, dirigete a la pestaña [*Commits*](https://github.com/SanssSepUTP/Data/commits/main).
+Si, para esto, dirigete a la pestaña [*Commits*](https://github.com/SanssSepUTP/Data/commits/main).
 
 <a href=https://github.com/SanssSepUTP/Data/commits/main>
 <img src="img/commit.png" alt="Imagen de commit" width="150" height="50">

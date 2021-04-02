@@ -1,11 +1,13 @@
 <center>
 <link rel="stylesheet" href="css/retro.css">
-</center>
 
 
 # Estructura de datos
 
 <img src="img/utp.png" alt="Logo UTP" width="150" height="150"> 
+
+</center>
+
 
 Repositorio creado para hostear el codigo desarrollado en Estructura de
 datos 

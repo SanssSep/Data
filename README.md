@@ -1,3 +1,4 @@
+![utp](img/utp.png)
 # Estructura de datos
 
 Repositorio creado para hostear el codigo desarrollado en Estructura de

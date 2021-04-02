@@ -1,7 +1,6 @@
 # Estructura de datos
 
-Repositorio creado para hostear el código desarrollado en Estructura de
-datos.
+Repositorio creado para hostear el código desarrollado en Estructura de datos.
 
 ## *FAQ*
 
@@ -17,6 +16,10 @@ Si, pero debes analizarlo y entenderlo para responder correctamente las pregunta
 
 ### **¿Puedo ver un historial de cada cambio al codigo?**
 Si, para esto dirígete a la pestaña [*Commits*](https://github.com/SanssSepUTP/Data/commits/main).
+
+### **¿Puedo aportar al codigo?**
+¡Claro!, puedes escribirme y agregaré tu segmento, si sabes utilizar Github, puedes hacer 
+un pull request, y si quieres participar a fondo, puedo darte acceso al repositorio.
 
 <a href=https://github.com/SanssSepUTP/Data/commits/main>
 <img src="img/commits.png" alt="Imagen de commit" width="150" height="50">

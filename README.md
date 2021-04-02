@@ -9,7 +9,7 @@ datos
 Si, para esto, dirigete a la pestaña [*Commits*](https://github.com/SanssSepUTP/Data/commits/main).
 
 <a href=https://github.com/SanssSepUTP/Data/commits/main>
-<img src="img/commit.png" alt="Imagen de commit" width="150" height="50">
+<img src="img/commits.png" alt="Imagen de commit" width="150" height="50">
 </a>
 
 > Cualquier duda o sugerencia, pueden comunicarse por:
